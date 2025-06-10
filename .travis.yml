@@ -7,10 +7,11 @@ before_install:
   - docker build -t xunyuanxin/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true USERNAME/react-test npm test
+  - docker run -e CI=true xunyuanxin/react-test npm test
 
 after_success:
   - docker build -t xunyuanxin/multi-client ./client
   - docker build -t xunyuanxin/multi-nginx ./nginx
   - docker build -t xunyuanxin/multi-server ./server
   - docker build -t xunyuanxin/multi-worker ./worker
+  # take those images and push them to docker hub
