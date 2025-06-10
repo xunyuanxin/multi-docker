@@ -14,4 +14,10 @@ after_success:
   - docker build -t xunyuanxin/multi-nginx ./nginx
   - docker build -t xunyuanxin/multi-server ./server
   - docker build -t xunyuanxin/multi-worker ./worker
-  # take those images and push them to docker hub
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" -- password-stdin
+  # Take those images and push them to docker hub
+  - docker push xunyuanxin/multi-client
+  - docker push xunyuanxin/multi-nginx
+  - docker push xunyuanxin/multi-server
+  - docker push xunyuanxin/multi-worker
