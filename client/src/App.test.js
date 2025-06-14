@@ -5,5 +5,5 @@ import App from './App';
 
 test('renders hi there link', () => {
   render(<App />);
-  expect(screen.getByText(/Hi There!/i)).toBeInTheDocument();
+  expect(screen.getByText(/Fib Calculator/i)).toBeInTheDocument();
 });
