@@ -4,6 +4,11 @@ services:
   - docker
 
 before_install:
+  # 👇 Fix Nokogiri compatibility by forcing source build
+  - sudo apt-get update && sudo apt-get install -y ruby-full
+  - gem install bundler
+  - bundle config set force_ruby_platform true
+
   - docker build -t xunyuanxin/react-test -f ./client/Dockerfile.dev ./client
 
 script:
