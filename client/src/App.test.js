@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 jest.mock('./Fib', () => () => <div>Mocked Fib</div>);
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders hi there link', () => {
   render(<App />);
-  expect(screen.getByText(/learn react/i)).toBeInTheDocument();
+  expect(screen.getByText(/Hi There!/i)).toBeInTheDocument();
 });
